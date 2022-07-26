@@ -1,5 +1,5 @@
 import { RiAddLine, RiEditLine } from "react-icons/ri";
-import { Input, Header, Sidebar } from "../../components";
+import { Header, Sidebar, Pagination } from "../../components";
 import {
   Box,
   Flex,
@@ -85,6 +85,8 @@ export default function UserList() {
               </Td>
             </Tbody>
           </Table>
+
+          <Pagination />
         </Box>
       </Flex>
     </Box>
