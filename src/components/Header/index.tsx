@@ -1,11 +1,14 @@
-import { Flex, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Icon, IconButton, useBreakpointValue } from "@chakra-ui/react";
+import { RiMenuLine } from "react-icons/ri";
 
 import Logo from "./Logo";
 import Search from "./Search";
 import Profile from "./Profile";
 import NotificationNav from "./NotificationNav";
+import { useSidebarDrawer } from "../../context/SidebarDrawerContext";
 
 export default function Header() {
+  const { onOpen } = useSidebarDrawer();
   const isLargeScreen = useBreakpointValue({
     base: false,
     lg: true,
@@ -22,6 +25,17 @@ export default function Header() {
       align="center"
       maxWidth={1480}
     >
+      {!isLargeScreen && (
+        <IconButton
+          mr="2"
+          fontSize="24"
+          onClick={onOpen}
+          variant="unstyled"
+          aria-label="Open menu"
+          icon={<Icon as={RiMenuLine} />}
+        />
+      )}
+
       <Logo />
 
       {isLargeScreen && <Search />}
